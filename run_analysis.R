@@ -45,3 +45,5 @@ measure_variables <- names(data_mean_std)[4:length(names(data_mean_std))]
 
 melted_data <- melt(data_mean_std, id.vars = id_variables, measure.vars = measure_variables)
 tidy_data <- dcast(melted_data, subject + activitylabel ~ variable, mean)
+
+write.table(tidy_data, file = "tidy_data.txt", row.names = FALSE)
